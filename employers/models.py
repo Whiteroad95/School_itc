@@ -6,6 +6,10 @@ class Headmaster(models.Model):
     photo = models.ImageField(upload_to='photo', verbose_name='Фотография директора')
     number = models.CharField(max_length=255, verbose_name='Номер')
 
+
+
+
+
     def __str__(self):
         return self.name_surname
 
