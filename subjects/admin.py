@@ -4,7 +4,7 @@ from .models import School, ClassGroup, Students, Lessons
 
 
 class SchoolAdmin(admin.ModelAdmin):
-    list_display = ['director', 'senior_teachers', 'teachers', 'classes', 'students', 'teacher']
+    list_display = ['director', 'senior_teachers', 'teachers', 'classes', 'students', 'lessons']
 
 
 admin.site.register(School, SchoolAdmin)

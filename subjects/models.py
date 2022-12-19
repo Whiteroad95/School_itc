@@ -1,4 +1,5 @@
 from django.db import models
+from employers.models import Teachers, Headmaster, Headteacher
 
 
 class ClassGroup(models.Model):
@@ -32,13 +33,13 @@ class Lessons(models.Model):
         verbose_name_plural = 'Уроки'
 
 
-class School():
-    director: Headmaster = models.ForeignKey(Headmaster, on_delete=models.CASCADE)
+class School(models.Model):
+    director: Headmaster = models.OneToOneField(Headmaster, on_delete=models.CASCADE)
     senior_teachers: Headteacher = models.ForeignKey(Headteacher, on_delete=models.CASCADE)
     teachers: Teachers = models.ForeignKey(Teachers, on_delete=models.CASCADE)
     classes: ClassGroup = models.ForeignKey(ClassGroup, on_delete=models.CASCADE)
     students: Students = models.ForeignKey(Students, on_delete=models.CASCADE)
-    teacher: Students = models.ForeignKey(Students, on_delete=models.CASCADE)
+    lessons: Lessons = models.ForeignKey(Lessons, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Школа'
